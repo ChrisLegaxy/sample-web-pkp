@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && pagefind --site out",
+    "build": "next build && pagefind --site out --output-subdir _pagefind",
     "postbuild": "echo 'Static site exported to ./out'",
     "start": "next start",
     "serve": "npx serve out"
