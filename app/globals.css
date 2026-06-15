@@ -1,0 +1,70 @@
+/* TrueMoney Cambodia brand theme for the Product Knowledge Portal.
+   Brand colors sampled from https://www.truemoney.com.kh/ logo:
+   orange #F6821F (primary), red #ED1D26, yellow #FFCF07. */
+
+:root {
+  --tmn-orange: #f6821f;
+  --tmn-red: #ed1d26;
+  --tmn-yellow: #ffcf07;
+
+  /* Nextra composes its accent as
+     hsl(var(--nextra-primary-hue) var(--nextra-primary-saturation) var(--nextra-primary-lightness)).
+     Orange #F6821F ≈ hsl(28deg 92% 54%); use 48% in light mode for link contrast. */
+  --nextra-primary-hue: 28deg;
+  --nextra-primary-saturation: 92%;
+  --nextra-primary-lightness: 48%;
+}
+
+.dark {
+  /* Lighten the orange on dark backgrounds so links stay legible. */
+  --nextra-primary-hue: 30deg;
+  --nextra-primary-saturation: 95%;
+  --nextra-primary-lightness: 60%;
+}
+
+/* Typography: Inter for body, Poppins for headings/brand (friendly, rounded —
+   close to TrueMoney's modern look). Variables injected by next/font. */
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-poppins), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Navbar brand lockup: logo image + portal name. */
+.tmn-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+.tmn-brand__logo {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.tmn-brand__name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  /* Divider between the logo and the portal name. */
+  padding-left: 0.55rem;
+  border-left: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+}
+
+/* Brand gradient accent for the home hero heading. */
+.tmn-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--tmn-red) 0%,
+    var(--tmn-orange) 55%,
+    var(--tmn-yellow) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
